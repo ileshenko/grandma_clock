@@ -14,5 +14,5 @@ var messages = [
 The file `clock.js` contains the app logic, and settings for update intervals.
 
 The file `index.html` defines the structure of the page and its styling.
-The scale of different elements can be controled by chaning the
+The scale of different elements can be controlled by changing the
 `font-size` and `margin-top` properties at the top of the file.
