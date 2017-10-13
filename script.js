@@ -2,19 +2,24 @@ updateTime();
 setInterval(updateTime, 15 * 1000);
 
 updateMessage();
-setInterval(updateMessage, 60 * 60 * 1000 * 0 + 1000);
+setInterval(updateMessage, 60 * 60 * 1000);
+
+var nightMode = false;
+setInterval(function() {
+	nightMode = !nightMode;
+	document.body.className = nightMode ? "night-mode" : "";
+}, 10 * 60 * 1000);
 
 // Uncomment this to periodically reload the page (and get updates from the server)
 // setInterval(function() {location.reload();}, 15 * 60 * 1000);
 
 function updateTime()
 {
-	console.log('updating time');
 	var now = new Date();
 	document.getElementById("date").innerText =
-		now.toLocaleString('rus-RU', {year: 'numeric', month: 'long', day: 'numeric' });
+		now.toLocaleString("rus-RU", {year: "numeric", month: "long", day: "numeric" });
 	document.getElementById("day-time").innerText =
-		now.toLocaleString('rus-RU', {weekday: 'long', hour: '2-digit', minute: '2-digit'});
+		now.toLocaleString("rus-RU", {weekday: "long", hour: "2-digit", minute: "2-digit"});
 }
 
 function updateMessage()
