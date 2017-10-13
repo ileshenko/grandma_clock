@@ -1,14 +1,18 @@
+var timeUpdateInterval = 15 * 1000;
+var messageUpdateInterval = 60 * 60 * 1000;
+var colorUpdateInterval = 10 * 60 * 1000;
+
 updateTime();
-setInterval(updateTime, 15 * 1000);
+setInterval(updateTime, timeUpdateInterval);
 
 updateMessage();
-setInterval(updateMessage, 60 * 60 * 1000);
+setInterval(updateMessage, messageUpdateInterval);
 
 var nightMode = false;
 setInterval(function() {
 	nightMode = !nightMode;
 	document.body.className = nightMode ? "night-mode" : "";
-}, 10 * 60 * 1000);
+}, colorUpdateInterval);
 
 // Uncomment this to periodically reload the page (and get updates from the server)
 // setInterval(function() {location.reload();}, 15 * 60 * 1000);
