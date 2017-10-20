@@ -23,7 +23,7 @@ function updateTime()
 	document.getElementById("date").innerText =
 		now.toLocaleString("rus-RU", {year: "numeric", month: "long", day: "numeric" });
 	document.getElementById("day-time").innerText =
-		now.toLocaleString("rus-RU", {weekday: "long", hour: "2-digit", minute: "2-digit"});
+		now.toLocaleString("rus-RU", {weekday: "long"/*, hour: "numeric", minute: "2-digit"*/});
 }
 
 function updateMessage()
