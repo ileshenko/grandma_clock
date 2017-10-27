@@ -1,4 +1,4 @@
-var timeUpdateInterval = 15 * 1000;
+﻿var timeUpdateInterval = 15 * 1000;
 var messageUpdateInterval = 60 * 60 * 1000;
 var colorUpdateInterval = 10 * 60 * 1000;
 
@@ -26,26 +26,48 @@ function updateTime()
 		now.toLocaleString("rus-RU", {weekday: "long"/*, hour: "numeric", minute: "2-digit"*/});
 }
 
-function updateMessage()
+function getMessageForDay(date)
 {
-	var now = new Date();
 	var message = "";
 
 	for (var i = 0; i < messages.length; i++)
 	{
 		var d = new Date(messages[i][0]);
 
-		if (now.getFullYear() == d.getFullYear()
-			&& now.getMonth() == d.getMonth()
-			&& now.getDate() == d.getDate())
+		if (date.getFullYear() == d.getFullYear()
+			&& date.getMonth() == d.getMonth()
+			&& date.getDate() == d.getDate())
 		{
 			message += messages[i][1] + "\n";
 		}
 	}
 
+	return message;
+}
+
+function updateMessage()
+{
+	var today = new Date();
+	var tomorrow = new Date();
+	tomorrow.setDate(today.getDate() + 1);
+
+	var messageToday = getMessageForDay(today);
+	var messageTomorrow = getMessageForDay(tomorrow);
+
+	var message = "";
+
+	if (messageToday)
+	{
+		message += "Сегодня - " + messageToday;
+	}
+	if (messageTomorrow)
+	{
+		message += "Завтра - " + messageTomorrow;
+	}
+
 	if (message == "")
 	{
-		message = "~"
+		message = "~";
 	}
 
 	document.getElementById("message").innerText = message;
