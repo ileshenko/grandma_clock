@@ -50,13 +50,16 @@ function updateMessage()
 	var today = new Date();
 	var tomorrow = new Date();
 	tomorrow.setDate(today.getDate() + 1);
+	var todayNoon = new Date();
+	todayNoon.setHours(13);
+	todayNoon.setMinutes(30);
 
 	var messageToday = getMessageForDay(today);
 	var messageTomorrow = getMessageForDay(tomorrow);
 
 	var message = "";
 
-	if (messageToday)
+	if (today <= todayNoon && messageToday)
 	{
 		message += "Сегодня - " + messageToday;
 	}
