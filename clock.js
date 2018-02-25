@@ -1,5 +1,5 @@
 ﻿var timeUpdateInterval = 15 * 1000;
-var messageUpdateInterval = 60 * 60 * 1000;
+var messageUpdateInterval = 5 * 60 * 1000;
 var colorUpdateInterval = 10 * 60 * 1000;
 
 updateTime();
